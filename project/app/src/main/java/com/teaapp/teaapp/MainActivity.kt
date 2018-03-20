@@ -7,6 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import android.app.Activity
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,5 +38,22 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+
+}
+
+class MyActivity : Activity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_main)
+
+        val button = findViewById<Button>(R.id.button_id)
+        button.setOnClickListener(object : View.OnClickListener() {
+            fun onClick(v: View) {
+                // Code here executes on main thread after user presses button
+            }
+        })
     }
 }
