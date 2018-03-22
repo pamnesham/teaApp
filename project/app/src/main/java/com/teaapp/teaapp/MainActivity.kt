@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 
+
 import kotlinx.android.synthetic.main.activity_main.*
 import android.app.Activity
-
+import android.view.View
+import android.widget.Button
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,10 +20,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
-//        }
+        val button = findViewById<Button>(R.id.button_id)
+        button.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                println("for the broskis")
+            }
+        })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -41,19 +46,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-}
-
-class MyActivity : Activity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_main)
-
-        val button = findViewById<Button>(R.id.button_id)
-        button.setOnClickListener(object : View.OnClickListener() {
-            fun onClick(v: View) {
-                // Code here executes on main thread after user presses button
-            }
-        })
-    }
 }
